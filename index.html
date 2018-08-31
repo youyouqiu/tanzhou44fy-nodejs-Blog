@@ -1,0 +1,204 @@
+<!-- 标准html参考，转换为pug用 -->
+<!doctype html> <!-- 网页申明：html标准文档 -->
+<html lang='en'> <!-- 网页框架：英文 -->
+ <head> <!-- 网页头部:网页定义区域 -->
+  <meta charset='UTF-8'> <!-- 文字编码：国际通用 -->
+  <meta name='Keywords' content='潭州汪涵商城,湖南潭州,潭州官网'> <!-- 关键词：搜索优化 -->
+  <meta name='Description' content='汪涵，1974年出生在江苏省苏州市吴中区，中国民主促进会会员，中国民主促进会中央委员，湖南卫视节目主持人，国内综艺主持，曾主持过《音乐不断歌友会》、《超级女声》、《快乐男生》等节目，现主持《天天向上》、《越策越开心》等。'> <!-- 网页描述：网页简介 -->
+  <meta name='Author' content='Mr.柳上原'> <!-- 网页开发者：我自己 -->
+  <title>前端59期html+css结业《潭州汪涵商城》</title> <!-- 网页标题：可见标题栏 -->
+  <link rel='shortcut icon' type='image/x-icon' href='./icons/bitbug_favicon.ico'/> <!-- 网页标题图标 -->
+  <script src="./public/images/font_jwsxormnjro/iconfont.js"></script>
+  
+  <!-- 
+	
+		标准键盘布局 
+		┌───┐   ┌───┬───┬───┬───┐ ┌───┬───┬───┬───┐ ┌───┬───┬───┬───┐ ┌───┬───┬───┐ 
+		│Esc│   │ F1│ F2│ F3│ F4│ │ F5│ F6│ F7│ F8│ │ F9│F10│F11│F12│ │P/S│S L│P/B│  ┌┐    ┌┐    ┌┐ 
+		└───┘   └───┴───┴───┴───┘ └───┴───┴───┴───┘ └───┴───┴───┴───┘ └───┴───┴───┘  └┘    └┘    └┘ 
+		┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───────┐ ┌───┬───┬───┐ ┌───┬───┬───┬───┐ 
+		│~ `│! 1│@ 2│# 3│$ 4│% 5│^ 6│& 7│* 8│( 9│) 0│_ -│+ =│ BacSp │ │Ins│Hom│PUp│ │N L│ / │ * │ - │ 
+		├───┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─────┤ ├───┼───┼───┤ ├───┼───┼───┼───┤ 
+		│ Tab │ Q │ W │ E │ R │ T │ Y │ U │ I │ O │ P │{ [│} ]│ | \ │ │Del│End│PDn│ │ 7 │ 8 │ 9 │   │ 
+		├─────┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴─────┤ └───┴───┴───┘ ├───┼───┼───┤ + │ 
+		│ Caps │ A │ S │ D │ F │ G │ H │ J │ K │ L │: ;│" '│ Enter  │               │ 4 │ 5 │ 6 │   │ 
+		├──────┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴────────┤     ┌───┐     ├───┼───┼───┼───┤ 
+		│ Shift  │ Z │ X │ C │ V │ B │ N │ M │< ,│> .│? /│  Shift   │     │ ↑ │     │ 1 │ 2 │ 3 │   │ 
+		├─────┬──┴─┬─┴──┬┴───┴───┴───┴───┴───┴──┬┴───┼───┴┬────┬────┤ ┌───┼───┼───┐ ├───┴───┼───┤ E││ 
+		│ Ctrl│    │Alt │         Space         │ Alt│    │    │Ctrl│ │ ← │ ↓ │ → │ │   0   │ . │←─┘│ 
+		└─────┴────┴────┴───────────────────────┴────┴────┴────┴────┘ └───┴───┴───┘ └───────┴───┴───┘ 
+		 
+		//					写字楼里写字间，写字间里程序员；  
+		//                  程序人员写程序，又拿程序换酒钱。  
+		//                  酒醒只在网上坐，酒醉还来网下眠；  
+		//                  酒醉酒醒日复日，网上网下年复年。  
+		//                  但愿老死电脑间，不愿鞠躬老板前；  
+		//                  奔驰宝马贵者趣，公交自行程序员。  
+		//                  别人笑我忒疯癫，我笑自己命太贱；  
+		//                  不见满街漂亮妹，哪个归得程序员？  
+		 
+    -->
+    
+    <style type='text/css'> /* 内部样式表：给自己看的 */
+        body,div,ul,li,h1,dl,dd{
+            margin:0;
+            padding:0;
+        }
+        li{
+            list-style:none;
+        }
+        a{
+            text-decoration:none;
+        }
+        body{
+            width:100%;
+        }
+        .fl{
+            float:left;
+        }
+        .fr{
+            float:right;
+        }
+        .cf::after{
+            content:"";
+            display:block;
+            clear:both;
+        }
+        .icon {
+            width:22px;
+            height:22px;
+            color:rgb(48, 203, 230);
+            vertical-align:-5px;
+            fill:currentColor;
+            overflow:hidden;
+            margin-right:5px;
+        }
+
+        #nav{
+            position:relative;
+            width:100%;
+            background:red;
+            font-family:'Microsoft YaHei';
+        }
+        h1{
+            line-height:69px;
+            margin-right:52px;
+            margin-left:38px;
+        }
+        h1 img{
+            vertical-align:middle;
+        }
+        .nav-txt li{
+            font-size:17px;
+            color:white;
+            line-height:69px;
+            text-align:center;
+            margin-left:38px; 
+        }
+        .login{
+            position:absolute;
+            top:0;
+            right:99px;
+            width:300px;
+        }
+        .login li{
+            font-size:17px;
+            color:white;
+            line-height:69px;
+            margin-left:22px;
+        }
+        .user a{
+            color:white;
+            font-size:25px;
+            font-weight:bold;
+        }
+        .userimg a{
+            color:white;
+            font-size:15px;
+        }
+        .userimg a img{
+            width:38px;
+            vertical-align:middle;
+        }
+        .userimg a span{
+            vertical-align:-15px;
+        }
+        .usertab{
+            display:none;
+        }
+        .imgggg{
+            height:1000px;
+            background:url("./public/images/1.jpg") no-repeat 0 0;
+        }
+    </style>
+</head>	
+<body>
+    <div id="nav">
+        <h1 class="fl">
+            <img src="./public/images/logo.png" alt="潭州logo">
+        </h1>
+        <ul class="nav-txt cf">
+            <li class="fl">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-qianduanwangzhan-3"></use>
+                </svg>
+                <a href="">首页</a>
+            </li>
+            <li class="fl">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-qianduanwangzhan-3"></use>
+                </svg>Html论坛
+            </li>
+            <li class="fl">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-qianduanwangzhan-1"></use>
+                </svg>Css论坛
+            </li>
+            <li class="fl">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-qianduanmaidianrizhi"></use>
+                </svg>JavaScript论坛
+            </li>
+            <li class="fl">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-qianduanwangzhan-"></use>
+                </svg>Vue论坛
+            </li>
+            <li class="fl">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-qianduanwangzhan-2"></use>
+                </svg>Node论坛
+            </li>
+            <li class="fl">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-qianduanwangzhan-4"></use>
+                </svg>MongoDB论坛
+            </li>
+            <li class="fl">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-touxiang"></use>
+                </svg>About
+            </li>
+        </ul>
+        <ul class="login">
+            <li class="user fl">
+                <a href="/admin/user">个人中心</a>
+            </li>
+            <li class="userimg fl">
+                <a href="">
+                    <img src="./public/images/name1.jpg">
+                    <span>风屿</span>
+                </a>
+                <dl class="usertab">
+                    <dd>
+                        <a href="/user/logout">退出</a>
+                    </dd>
+                </dl>
+            </li>
+        </ul>
+        <!-- <span>注册</span>
+        <span>登录</span> -->
+    </div>
+    <div class="imgggg"></div>
+</body>
+</html>

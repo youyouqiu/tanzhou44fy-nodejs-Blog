@@ -1,0 +1,38 @@
+/*
+    通用清除默认样式表
+*/ 
+@charset "utf-8";
+
+/* body,div,ul,li,h1{
+    margin:0;
+    padding:0;
+}
+li{
+    list-style:none;
+} */
+body{
+    width:100%;
+}
+.fl{
+    float:left;
+}
+.fr{
+    float:right;
+}
+.cf::after{
+    content:"";
+    display:block;
+    clear:both;
+}
+.icon {
+    width:22px;
+    height:22px;
+    color:rgb(48, 203, 230);
+    vertical-align:-5px;
+    fill:currentColor;
+    overflow:hidden;
+    margin-right:5px;
+}
+
+
+

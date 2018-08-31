@@ -1,0 +1,65 @@
+/*
+    通用导航栏样式表
+*/
+@charset "utf-8";
+
+#nav{
+    position:relative;
+    width:100%;
+    background:red;
+    font-family:'Microsoft YaHei';
+}
+h1{
+    line-height:69px;
+    margin-right:52px;
+    margin-left:38px;
+}
+h1 img{
+    vertical-align:middle;
+}
+.nav-txt li{
+    font-size:17px;
+    color:white;
+    line-height:69px;
+    text-align:center;
+    margin-left:38px; 
+}
+.nav-txt li a{
+    color:white;
+}
+.login{
+    position:absolute;
+    top:0;
+    right:99px;
+    width:300px;
+}
+.login li{
+    font-size:17px;
+    color:white;
+    line-height:69px;
+    margin-left:22px;
+}
+.user a{
+    color:white;
+    font-size:25px;
+    font-weight:bold;
+}
+.userimg a{
+    color:white;
+    font-size:15px;
+}
+.userimg a img{
+    width:38px;
+    vertical-align:middle;
+}
+.userimg a span{
+    vertical-align:-15px;
+}
+.usertab{
+    display:none;
+}
+
+
+
+
+

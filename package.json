@@ -1,0 +1,28 @@
+{
+  "name": "tanzhou44fy-nodejs-Blog",
+  "version": "1.0.0",
+  "description": "潭州前端学院44期(fy)-NodeJs实战-Blog骚论坛",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/youyouqiu/tanzhou44fy-nodejs-Blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/youyouqiu/tanzhou44fy-nodejs-Blog/issues"
+  },
+  "homepage": "https://github.com/youyouqiu/tanzhou44fy-nodejs-Blog#readme",
+  "dependencies": {
+    "koa": "^2.5.2",
+    "koa-logger": "^3.2.0",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
+    "koa-views": "^6.1.4",
+    "pug": "^2.0.3"
+  }
+}

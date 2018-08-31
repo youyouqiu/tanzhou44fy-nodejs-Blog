@@ -1,0 +1,62 @@
+// 公共导航 pug
+
+div(id="nav")
+    // 导航界面
+    h1(class="fl")
+        img(src="/images/logo.png", alt="潭州logo")
+    ul(class="nav-txt cf")
+        li(class="fl")
+            svg(class="icon", aria-hidden=true)
+                use(xlink:href="#icon-qianduanwangzhan-3")
+            a(href="/") 首页
+        li(class="fl")
+            svg(class="icon", aria-hidden=true)
+                use(xlink:href="#icon-qianduanwangzhan-3")
+            a(href="/html") Html论坛
+        li(class="fl")
+            svg(class="icon", aria-hidden=true)
+                use(xlink:href="#icon-qianduanwangzhan-1")
+            a(href="/css") Css论坛
+        li(class="fl")
+            svg(class="icon", aria-hidden=true)
+                use(xlink:href="#icon-qianduanmaidianrizhi")
+            a(href="/js") JavaScript论坛
+        li(class="fl")
+            svg(class="icon", aria-hidden=true)
+                use(xlink:href="#icon-qianduanwangzhan-")
+            a(href="/vue") Vue论坛
+        li(class="fl")
+            svg(class="icon", aria-hidden=true)
+                use(xlink:href="#icon-qianduanwangzhan-2")
+            a(href="/node") Node论坛
+        li(class="fl")
+            svg(class="icon", aria-hidden=true)
+                use(xlink:href="#icon-qianduanwangzhan-4")
+            a(href="/mongodb") MongoDB论坛
+        li(class="fl")
+            svg(class="icon", aria-hidden=true)
+                use(xlink:href="#icon-touxiang")
+            a(href="/about") About
+
+    // 登录界面
+    ul(class="login")
+        li(class="user fl")
+            a(href=session.role > 1 ? "/admin/user": "/admin/article") 个人中心
+        li(class="userimg fl")
+            a(href="")
+                img(src="/images/name1.jpg")
+                span= "风屿"
+            dl(class="usertab")
+                dd
+                    a(href="/user/logout") 退出
+
+block script
+    script(src="/images/font_jwsxormnjro/iconfont.js")
+
+
+
+
+
+
+
+

@@ -1,0 +1,33 @@
+// 模板
+doctype html
+html
+    head
+        title= title
+        meta(charset="UTF-8")
+        meta(name="Author", content="Mr.柳上原")
+        link(rel="stylesheet", href="/layui/css/layui.css")
+        link(rel="stylesheet", href="/css/nav.css")
+        link(rel="stylesheet", href="/css/base.css")
+        block css
+
+        script(src="/layui/layui.js")
+    body
+        // nav
+        include ./nav.pug
+
+        // content
+        block contents
+
+        // footer
+        include ./footer.pug
+
+        // script
+        block script
+        
+        
+
+
+
+
+
+
