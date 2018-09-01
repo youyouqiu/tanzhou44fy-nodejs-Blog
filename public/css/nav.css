@@ -30,8 +30,8 @@ h1 img{
 .login{
     position:absolute;
     top:0;
-    right:99px;
-    width:300px;
+    right:0;
+    width:252px;
 }
 .login li{
     font-size:17px;
@@ -39,10 +39,25 @@ h1 img{
     line-height:69px;
     margin-left:22px;
 }
+.login .user{
+    position:relative;
+    margin-right:12px;
+    margin-left:0;
+}
 .user a{
     color:white;
     font-size:25px;
     font-weight:bold;
+}
+.userico{
+    position:absolute;
+    top:33px;
+    left:105px;
+    width:0px;
+    height:0px;
+    border-top:9px solid rgb(52, 78, 102);
+    border-right:7px solid rgba(0,0,0,0);
+    border-left:7px solid rgba(0,0,0,0);
 }
 .userimg a{
     color:white;
@@ -51,14 +66,31 @@ h1 img{
 .userimg a img{
     width:38px;
     vertical-align:middle;
+    margin-right:9px;
 }
 .userimg a span{
     vertical-align:-15px;
 }
-.usertab{
+.usertab1{
     display:none;
 }
-
+.usertab2{
+    position:absolute;
+    top:69px;
+    left:0;
+    width:115px;
+    background-color:rosybrown;
+}
+.usertab2 li{
+    color:white;
+    line-height:48px;
+    text-align:center;
+    border-bottom:1px solid white;
+    margin:0;
+}
+.usertab2 li a{
+    font-size:17px;
+}
 
 
 

@@ -1,3 +1,5 @@
+// 首页拖动效果js
+
 function fixPagesHeight() {
     $('.swiper-slide,.swiper-container').css({
         height: $(window).height(),
@@ -53,3 +55,5 @@ var mySwiper = new Swiper('.swiper-container', {
         }
     }
 });
+
+

@@ -42,14 +42,19 @@ div(id="nav")
     ul(class="login")
         li(class="user fl")
             a(href=session.role > 1 ? "/admin/user": "/admin/article") 个人中心
+            div(class="userico")
+            ol(class="usertab1" id="usertab")
+                li
+                    a(href="/user/usermsg") 用户信息
+                li
+                    a(href="/user/logout") 退出登录
         li(class="userimg fl")
             a(href="")
                 img(src="/images/name1.jpg")
                 span= "风屿"
-            dl(class="usertab")
-                dd
-                    a(href="/user/logout") 退出
 
+    script(src="/js/nav.js")
+        
 
 
 

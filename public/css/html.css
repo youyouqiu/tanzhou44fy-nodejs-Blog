@@ -1,0 +1,15 @@
+/*
+    Html子页面样式表
+*/
+@charset "utf-8";
+
+.hwrap{
+    width:690px;
+    border:1px solid red;
+    margin:100px auto;
+    padding:9px;
+}
+
+
+
+

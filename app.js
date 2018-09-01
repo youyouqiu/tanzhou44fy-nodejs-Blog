@@ -1,3 +1,5 @@
+// node实战项目入口文件
+
 // 导入依赖模块
 const Koa = require("koa");
 const static = require("koa-static");
@@ -27,5 +29,6 @@ app.use(router.routes()).use(router.allowedMethods());
 app.listen(3003, () => {
     console.log("Node实战项目启动成功，监听在localhost:3003端口");
 })
+
 
 
