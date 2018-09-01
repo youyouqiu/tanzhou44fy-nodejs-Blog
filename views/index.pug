@@ -2,13 +2,27 @@ extends ./layout/layout.pug
 
 block css
     link(rel="stylesheet", href="/css/index.css")
+    link(rel="stylesheet", href="/css/swiper.min.css")
 
 block contents
     include ./layout/tag.pug
 
-    div(class="imgggg")
-    
-
+    div(class="iwrap")
+        div(class="swiper-container")
+            div(class="swiper-wrapper")
+                div(class="swiper-slide")
+                    img(src="/images/a1.jpg", alt="滑动图01")
+                div(class="swiper-slide")
+                    img(src="/images/a2.jpg", alt="滑动图02")
+                div(class="swiper-slide")
+                    img(src="/images/a3.jpg", alt="滑动图03")
+                div(class="swiper-slide")
+                    img(src="/images/a4.jpg", alt="滑动图04")
+   
+block script
+    script(src="/js/zepto.1.0.min.js")
+    script(src="/js/swiper.min.js")
+    script(src="/js/in.js")
 
 
 
