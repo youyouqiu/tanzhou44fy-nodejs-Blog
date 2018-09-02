@@ -1,12 +1,14 @@
 // node实战项目入口文件
 
-// 导入依赖模块
+// 导入依赖模块(中间件)
 const Koa = require("koa");
-const static = require("koa-static");
-const views = require("koa-views");
-const logger = require("koa-logger");
+const static = require("koa-static"); // 静态文件管理模块
+const views = require("koa-views"); // 视图渲染模块
+const logger = require("koa-logger"); // 运行日志模块
+const body = require("koa-body"); // 内容解析模块
+const session = require("koa-session"); // 后台缓存管理模块
 const { join } = require("path");
-// router
+// 导入routerjs
 const router = require("./routers/router");
 // 生成koa实例
 const app = new Koa();

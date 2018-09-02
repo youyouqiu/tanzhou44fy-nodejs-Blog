@@ -40,18 +40,26 @@ div(id="nav")
 
     // 登录界面
     ul(class="login")
-        li(class="user fl")
-            a(href=session.role > 1 ? "/admin/user": "/admin/article") 个人中心
-            div(class="userico")
-            ol(class="usertab1" id="usertab")
-                li
-                    a(href="/user/usermsg") 用户信息
-                li
-                    a(href="/user/logout") 退出登录
-        li(class="userimg fl")
-            a(href="")
-                img(src="/images/name1.jpg")
-                span= "风屿"
+        // 判断用户是否登录，显示相对应的登录状态界面
+        if session && !session.isNew
+            li(class="user fl")
+                a(href="#") 个人中心
+                div(class="userico")
+                ol(class="usertab1" id="usertab")
+                    li
+                        a(href=session.role > 1 ? "/admin/user": "/admin/article") 用户信息
+                    li
+                        a(href="/user/logout") 退出登录
+            li(class="userimg fl")
+                a(href="")
+                    // 测试用固定头像
+                    img(src="/images/name1.jpg")
+                    span= session.username
+        else
+            li
+                a(href="/user/login") 注册账号
+            li
+                a(href="/user/reg") 用户登录
 
     script(src="/js/nav.js")
         
