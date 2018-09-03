@@ -2,9 +2,12 @@
 
 // 加载layui.element,layui.laypage模块
 layui.use(["element", "laypage"], () => {
-    let element = layui.element;
-    let laypage = layui.laypage;
-});
+    let element = layui.element
+    let laypage = layui.laypage
+    const $ = layui.$
+    
+    element.tabDelete('demo', 'xxx')
+})  
 
 
 

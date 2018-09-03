@@ -4,85 +4,28 @@ block css
     link(rel="stylesheet", href="/css/register.css")
 
 mixin userinfo
-    form(class="layui-form", action="")
-        div(class="layui-form-item")
-            label(class="layui-form-label") 苟账号
-            div(class="layui-input-block")
-                input(type="text",
-                    name="title",
-                    required,
-                    lay-verify="required",
-                    placeholder="请输入标题",
-                    autocomplete="off",
-                    class="layui-input"
-                )
-        div(class="layui-form-item")
-            label(class="layui-form-label") 苟密码
-            div(class="layui-input-inline")
-                input(type="password",
-                    name="password",
-                    required,
-                    lay-verify="required",
-                    placeholder="请输入密码",
-                    autocomplete="off"
-                    ,class="layui-input"
-                )
-            div(class="layui-form-mid layui-word-aux") 请牢记你的密码，否则永远无法找回
-        div(class="layui-form-item")
-            label(class="layui-form-label") 苟家乡
-            div(class="layui-input-block")
-                select(name="city", lay-verify="required")
-                    option(value="")
-                    option(value="0") 北京
-                    option(value="1") 上海
-                    option(value="2") 广州
-                    option(value="3") 武汉
-                    option(value="4") 西安
-                    option(value="5") 随便
-        div(class="layui-form-item")
-            label(class="layui-form-label") 苟爱好
-            div(class="layui-input-block")
-                input(type="checkbox",
-                    name="like[write]",
-                    title="写作"
-                )
-                input(type="checkbox",
-                    name="like[read]",
-                    title="阅读",
-                    checked
-                )
-                input(type="checkbox",
-                    name="like[dai]",
-                    title="发呆"
-                )
-        div(class="layui-form-item")
-            label(class="layui-form-label") 反次元
-            div(class="layui-input-block")
-                input(type="checkbox",
-                    name="switch",
-                    lay-skin="switch"
-                )
-        div(class="layui-form-item")
-            label(class="layui-form-label") 苟男女
-            div(class="layui-input-block")
-                input(type="radio",
-                    name="sex",
-                    value="男",
-                    title="男"
-                )
-                input(type="radio",
-                    name="sex",
-                    value="女",
-                    title="女",
-                    checked
-                )
-        div(class="layui-form-item layui-form-text")
-            label(class="layui-form-label") 苟独白
-            div(class="layui-input-block")
-                textarea(name="desc",
-                    placeholder="请输入内容",
-                    class="layui-textarea"
-                )
+    
+    div(class="layui-form-item")
+        label(class="layui-form-label") 苟账号
+        div(class="layui-input-block")
+            input(type="text",
+                name="username",
+                required,
+                lay-verify="required",
+                placeholder="请输入用户名",
+                class="layui-input"
+            )
+    div(class="layui-form-item")
+        label(class="layui-form-label") 苟密码
+        div(class="layui-input-inline")
+            input(type="password",
+                name="password",
+                required,
+                lay-verify="required",
+                placeholder="请输入密码",
+                class="layui-input"
+            )
+        div(class="layui-form-mid layui-word-aux") 请牢记你的密码，否则永远无法找回
         
 mixin btn
     div(class="layui-form-item")

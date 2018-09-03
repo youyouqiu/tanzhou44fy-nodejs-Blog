@@ -52,6 +52,10 @@ h1 img{
     font-size:25px;
     font-weight:bold;
 }
+.login .user2 a{
+    color:white;
+    font-weight:bold;
+}
 .userico{
     position:absolute;
     top:33px;
@@ -62,6 +66,13 @@ h1 img{
     border-right:7px solid rgba(0,0,0,0);
     border-left:7px solid rgba(0,0,0,0);
 }
+.userimg{
+    width:99px;
+    height:69px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
 .userimg a{
     color:white;
     font-size:15px;
@@ -71,9 +82,9 @@ h1 img{
     vertical-align:middle;
     margin-right:9px;
 }
-.userimg a span{
+/* .userimg a span{
     vertical-align:-15px;
-}
+} */
 .usertab1{
     display:none;
 }
