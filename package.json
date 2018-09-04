@@ -2,7 +2,7 @@
   "name": "tanzhou44fy-nodejs-Blog",
   "version": "1.0.0",
   "description": "潭州前端学院44期(fy)-NodeJs实战-Blog骚论坛",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

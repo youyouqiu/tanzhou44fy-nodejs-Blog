@@ -5,9 +5,9 @@ layui.use(["element", "laypage"], () => {
     let element = layui.element
     let laypage = layui.laypage
     const $ = layui.$
-    
-    element.tabDelete('demo', 'xxx')
-})  
+})
+
+
 
 
 

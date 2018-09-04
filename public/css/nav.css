@@ -8,7 +8,7 @@
     top:0;
     left:0;
     width:100%;
-    background:red;
+    background:rgb(255, 98, 145);
     font-family:'Microsoft YaHei';
     z-index:999;
 }
@@ -82,9 +82,6 @@ h1 img{
     vertical-align:middle;
     margin-right:9px;
 }
-/* .userimg a span{
-    vertical-align:-15px;
-} */
 .usertab1{
     display:none;
 }

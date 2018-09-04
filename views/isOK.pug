@@ -1,0 +1,20 @@
+extends ./layout/layout
+
+block css
+    link(rel="stylesheet", href="/css/isOK.css")
+
+block contents
+    .iwrap
+    h1(style="text-align:center;color:red;")= status
+    h1(style="text-align:center;") 即将跳转
+
+block scripts
+    script.
+        setTimeout(() => {
+            location.href = "/"
+        }, 5000)
+
+
+
+
+

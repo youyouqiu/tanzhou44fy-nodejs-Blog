@@ -1,9 +1,11 @@
-// 生成用户的Schema
-const { Schema } = require("./config.js");
+// 生成用户的 Schema
+
+const { Schema } = require("./config");
 
 const UserSchema = new Schema({
     username: String,
     password: String,
+    city: String
 });
 
 
@@ -11,5 +13,8 @@ const UserSchema = new Schema({
 
 
 module.exports = UserSchema;
+
+
+
 
 

@@ -10,6 +10,7 @@ layui.use(['element', "layer"], function(){
     let $username = $(".layui-show input[name=username]");
     let $password = $(".layui-show input[name=password]");
     let $password2 = $(".layui-show input[name=confirmPWD]");
+    let $city = $(".layui-show input[name=city]");
     
     /* 
         $username.on("input", () => {
@@ -18,7 +19,7 @@ layui.use(['element', "layer"], function(){
         });
     */
   
-    $password2.on("blur", function(){
+    $password2.on("blur", function (){
         const pwd = $password.val();
         if($(this).val() !== pwd){
             layer.msg("两次密码不一致");
@@ -27,16 +28,21 @@ layui.use(['element', "layer"], function(){
     })
 });
 
-// // 加载layui.form模块
-// layui.use('form', function(){
-//     let form = layui.form;
+// 加载layui.form模块
+layui.use('form', function(){
+    let form = layui.form;
     
-//     //监听提交
-//     form.on('submit(formDemo)', function(data){
-//       layer.msg(JSON.stringify(data.field));
-//       return true;
-//     });
-// });
+    //监听提交
+    form.on('submit(formDemo)', function(){
+        // layer.msg(JSON.stringify(data.field));
+        
+        console.log(JSON.stringify(data.field));
+        
+        return true;
+    });
+});
+
+
 
 
 

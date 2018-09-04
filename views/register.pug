@@ -1,85 +1,90 @@
-extends ./layout/layout.pug
+extends ./layout/layout
 
 block css
     link(rel="stylesheet", href="/css/register.css")
 
 mixin userinfo
-    
-    div(class="layui-form-item")
-        label(class="layui-form-label") 苟账号
-        div(class="layui-input-block")
+    .layui-form-item
+        label.layui-form-label 苟账号
+        .layui-input-inline
             input(type="text",
                 name="username",
                 required,
                 lay-verify="required",
-                placeholder="请输入用户名",
-                class="layui-input"
-            )
-    div(class="layui-form-item")
-        label(class="layui-form-label") 苟密码
-        div(class="layui-input-inline")
+                placeholder="请输入用户名"
+            ).layui-input
+    .layui-form-item
+        label.layui-form-label 苟密码
+        .layui-input-inline
             input(type="password",
                 name="password",
                 required,
                 lay-verify="required",
-                placeholder="请输入密码",
-                class="layui-input"
+                placeholder="请输入密码"
+            ).layui-input
+        .layui-form-mid.layui-word-aux 请牢记你的密码，否则永远无法找回
+    .layui-form-item
+        label.layui-form-label 苟家乡
+        .layui-input-block
+            select(name="city",
+                lay-verify="required"
             )
-        div(class="layui-form-mid layui-word-aux") 请牢记你的密码，否则永远无法找回
-        
+                option(value="")
+                option(value="0") 背景
+                option(value="1") 伤害
+                option(value="2") 光度
+                option(value="3") 无憾
+                option(value="4") 吸俺
+
 mixin btn
-    div(class="layui-form-item")
-            div(class="layui-input-block")
-                button(class="layui-btn",
-                    lay-submit,
-                    lay-filter="formDemo"
-                ) 提交信息
-                button(type="reset", class="layui-btn layui-btn-primary") 重置注/登
+    .layui-form-item
+        .layui-input-block
+            button(lay-submit,
+                lay-filter="formDemo"
+            ).layui-btn 提交提交
+            button(type="reset").layui-btn.layui-btn-primary 重置重置
 
 block contents
-    div(id="main")
-        div(class="layui-container")
-            div(class="layui-tab")
-                ul(class="layui-tab-title")
-                    li(class=show?"":"layui-this")
+    #main
+        .layui-container
+            .layui-tab
+                ul.layui-tab-title
+                    li(class=show ? "" : "layui-this")
                         a(href="/user/login") 用户登录
-                    li(class=show?"layui-this":"")
-                        a(href="/user/reg") 用户注册
-                div(class="layui-tab-content")
+                    li(class=show ? "layui-this" : "")
+                        a(href="/user/reg") 账号注册
+                .layui-tab-content
                     //- 登录
-                    div(class="layui-tab-item", class=show?"":"layui-show")
-                        form(action="/user/login", 
-                            method="post", 
-                            class="layui-form"
-                        )
+                    .layui-tab-item(class=show ? "" : "layui-show")
+                        form(action="/user/login",
+                            method="post"
+                        ).layui-form
                             +userinfo
-                            div(class="layui-form-item")
-                                div(class="layui-input-block")
+                            .layui-form-item
+                                .layui-input-block
                                     +btn
             
                     //- 注册
-                    div(class="layui-tab-item", class=show?"layui-show":"")
-                        form(action="/user/reg", 
-                            method="POST", 
-                            class="layui-form"
-                        )
+                    .layui-tab-item(class=show ? "layui-show" : "")
+                        form(action="/user/reg",
+                            method="post"
+                        ).layui-form
                             +userinfo
-                            div(class="layui-form-item")
-                                label(class="layui-form-label") 确认密码
-                                div(class="layui-input-inline")
-                                    input(type="password", 
-                                        name="confirmPWD", 
-                                        required, 
-                                        lay-verify="required", 
-                                        placeholder="请确认密码",
-                                        class="layui-input"
-                                    )
+                            .layui-form-item
+                                label.layui-form-label 确认密码
+                                .layui-input-inline
+                                    input(type="password",
+                                        name="confirmPWD",
+                                        required,
+                                        lay-verify="required",
+                                        placeholder="请确认密码"
+                                    ).layui-input
                         
-                            div(class="layui-form-item")
-                                div(class="layui-input-block")
+                            .layui-form-item
+                                .layui-input-block
                                     +btn
 
-block script
+block scripts
     script(src="/js/register.js")
 
 
