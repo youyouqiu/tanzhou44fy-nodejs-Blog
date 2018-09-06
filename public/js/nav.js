@@ -1,20 +1,20 @@
-// 首页登录模块个人中心下拉框效果js
+// layui 首页登录模块个人中心下拉框效果js
 
-// const liS = document.getElementsByClassName("user")[0];
-// const olS = document.getElementById("usertab");
+layui.use(['element', "layer", 'form'], function(){
+    const element = layui.element;
+    const layer = layui.layer;
+    let form = layui.form;
+    const $ = layui.$;
+   
+    const $liS = $(".user").eq(0);
+    const $olS = $("#usertab");
 
-// liS.onmouseenter = function (){
-//     olS.className = "usertab2";
-// }
+    $liS.on("mouseenter", function (){
+        $olS.addClass("usertab2").removeClass("usertab1");
+    });
 
-// liS.onmouseleave = function (){
-//     olS.className = "usertab1";
-// }
+    $liS.on("mouseleave", function (){
+        $olS.addClass("usertab1").removeClass("usertab2");
+    })
+});
     
-
-
-
-
-
-
-

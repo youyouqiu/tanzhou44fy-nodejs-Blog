@@ -1,77 +1,66 @@
 // 公共导航 pug
 
-div(id="nav")
+#nav
     // 导航界面
-    h1(class="fl")
+    h1.fl
         img(src="/images/logo.png", alt="潭州logo")
-    ul(class="nav-txt cf")
-        li(class="fl")
+    ul.nav-txt.cf
+        li.fl
             svg(class="icon", aria-hidden=true)
                 use(xlink:href="#icon-qianduanwangzhan-3")
             a(href="/") 首页
-        li(class="fl")
+        li.fl
             svg(class="icon", aria-hidden=true)
                 use(xlink:href="#icon-qianduanwangzhan-3")
             a(href="/html") Html论坛
-        li(class="fl")
+        li.fl
             svg(class="icon", aria-hidden=true)
                 use(xlink:href="#icon-qianduanwangzhan-1")
             a(href="/css") Css论坛
-        li(class="fl")
+        li.fl
             svg(class="icon", aria-hidden=true)
                 use(xlink:href="#icon-qianduanmaidianrizhi")
             a(href="/js") JavaScript论坛
-        li(class="fl")
+        li.fl
             svg(class="icon", aria-hidden=true)
                 use(xlink:href="#icon-qianduanwangzhan-")
             a(href="/vue") Vue论坛
-        li(class="fl")
+        li.fl
             svg(class="icon", aria-hidden=true)
                 use(xlink:href="#icon-qianduanwangzhan-2")
             a(href="/node") Node论坛
-        li(class="fl")
+        li.fl
             svg(class="icon", aria-hidden=true)
                 use(xlink:href="#icon-qianduanwangzhan-4")
             a(href="/mongodb") MongoDB论坛
-        li(class="fl")
+        li.fl
             svg(class="icon", aria-hidden=true)
                 use(xlink:href="#icon-touxiang")
             a(href="/about") About
 
     // 登录界面
-    ul(class="login")
+    ul#login.layui-nav
         // 判断用户是否登录，显示相对应的登录状态界面
         if session && !session.isNew
-            li(class="user fl")
+            li.user.fl.layui-nav-item
                 a(href="#") 个人中心
-                div(class="userico")
+                .userico
                 ol(class="usertab1" id="usertab")
                     li
                         a(href=session.role > 1 ? "/admin/user": "/admin/article") 用户信息
                     li
                         a(href="/user/logout") 退出登录
-            li(class="userimg fl")
+            li.userimg.fl.layui-nav-item
                 a(href="")
                     // 测试用固定头像
-                    img(src="/images/name1.jpg")
+                    img(src="/images/name1.jpg").layui-nav-img
                     span= session.username
+                    span.layui-badge-dot
         else
-            li(class="user2 fl")
+            li.user2.fl
                 a(href="/user/login") 用户登录
-            li(class="user2 fl")
-                a(href="/user/reg") 注册账号
+            li.user2.fl
+                a(href="/user/reg") 用户注册
 
-    script(src="/js/nav.js")
-        
-
-
-
-
-
-
-
-
-
-
-
+script(src="/js/nav.js")
 

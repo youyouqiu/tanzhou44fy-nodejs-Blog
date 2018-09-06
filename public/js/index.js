@@ -7,11 +7,3 @@ layui.use(["element", "laypage"], () => {
     const $ = layui.$
 })
 
-
-
-
-
-
-
-
-

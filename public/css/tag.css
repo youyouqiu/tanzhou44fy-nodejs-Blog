@@ -1,0 +1,11 @@
+/*
+    侧边栏样式表
+*/
+@charset "utf-8";
+
+#tag{
+    position:fixed;
+    top:250px;
+    left:0;
+}
+

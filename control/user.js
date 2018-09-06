@@ -1,4 +1,5 @@
 // 用户注册，登录相关路由设置
+// 数据判断
 // 数据库读写操作
 
 const { db } = require("../Schema/config");
@@ -50,18 +51,21 @@ exports.reg = async ctx => {
         if (data){
             // 注册成功
             await ctx.render("isOK.pug", {
-                status: "注册成功"
+                status: "注册成功",
+                title: "注册成功"
             })
         } else {
             // 用户名已存在
             await ctx.render("isOK.pug", {
-                status: "用户名已存在"
+                status: "用户名已存在",
+                title: "注册失败"
             })
         }
     })
     .catch(async err => {
         await ctx.render("isOK.pug", {
-            status: "注册失败，请重试"
+            status: "注册失败，请重试",
+            title: "注册失败"
         })
     })
 }
@@ -94,35 +98,80 @@ exports.login = async ctx => {
             }
             // 密码不同
             res("");
-            // city 比对，把用户传过来的家乡信息和数据库的信息比对
-            // if (data[0].city === city){
-                // 家乡相同
-                // return res(data);
-            // }
-            // 家乡不同
-            // res("");
         })
     })
     .then(async data => {
         if (!data){
             return ctx.render("isOK.pug", {
-                status: "数据不正确，登录失败"
+                status: "数据不正确，登录失败",
+                title: "登录失败"
             })
         }
-        // 设置用户 cookie 值，
+        // 设置用户 cookie 值，用户的信息
+        ctx.cookies.set("username", username, {
+            domain: "localhost",
+            path: "/",
+            maxAge: 36e5,
+            httpOnly: true, // 是否不让客户端访问这个 cookie
+            overwrite: false,
+            signed: true
+        });
+
+        // 用户在数据库的 id 值
+        ctx.cookies.set("uid", data[0]._id, {
+            domain: "localhost",
+            path: "/",
+            maxAge: 36e5,
+            httpOnly: true,
+            overwrite: false,
+            signed: true
+        });
+
+        // 后端的 session 值，记录用户数据
+        ctx.session = {
+            username,
+            uid: data[0]._id
+        }
 
         // 登录成功
         await ctx.render("isOK.pug", {
-            status: "登录成功"
+            status: "登录成功",
+            title: "登录成功"
         })
     })
     .catch(async err => {
         await ctx.render("isOK.pug", {
-            status: err
+            status: err,
+            title: "登录失败"
         })
     })
 }
 
+// 判断确定用户状态，保持用户状态
+exports.keepLog = async (ctx, next) => {
+    if (ctx.session.isNew){ // 当 session 里没有保存任何数据的时候，isNew 为 true
+        if (ctx.cookies.get("username")){
+            ctx.session = {
+                username: ctx.cookies.get("username"),
+                uid: ctx.cookies.get("uid")
+            }
+        }
+    }
+    await next();
+}
 
-
+// 用户退出
+exports.logout = async ctx => {
+    // 清空session
+    ctx.session = null;
+    // 清空cookies，并把失效时间改为即时失效 0
+    ctx.cookies.set("username", null, {
+        maxAge: 0
+    });
+    ctx.cookies.set("uid", null, {
+        maxAge: 0
+    });
+    // 在后台设置重定向到根目录
+    ctx.redirect("/");
+}
 

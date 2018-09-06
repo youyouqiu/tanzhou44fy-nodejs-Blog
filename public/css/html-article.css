@@ -1,0 +1,27 @@
+/*
+    Html子页面文章展示样式表
+*/
+@charset "utf-8";
+
+#html-article{
+    padding:138px 238px 38px;
+}
+.layui-table td, .layui-table th{
+    line-height:38px;
+}
+.layui-table td img{
+    width:38px;
+}
+.layui-table td span{
+    display:inline-block;
+    width:69px;
+    height:22px;
+    background-color:pink;
+    border-radius:3px;
+    line-height:22px;
+    text-align:center;
+    margin-left:9px;
+    vertical-align:bottom;
+    color:white;
+}
+

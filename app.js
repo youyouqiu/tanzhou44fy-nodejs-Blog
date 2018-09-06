@@ -1,6 +1,6 @@
 // node 实战项目入口文件
 
-// 导入依赖模块(中间件)
+// 导入依赖模块 (中间件)
 const Koa = require("koa");
 const static = require("koa-static"); // 静态文件管理模块
 const views = require("koa-views"); // 视图渲染模块
@@ -21,8 +21,8 @@ const CONFIG = {
     key: "Sid", // 签名
     maxAge: 36e5, // 失效时间 3600000 毫秒
     overwrite: true, // 是否覆盖
-    httpOnly: true, // 对http是否不可见
-    // signed: true, // 是否签名
+    httpOnly: true, // 对 http 是否不可见
+    signed: true, // 是否签名，不设置或为 true 时，自动签名
     rolling: true // 是否开始新操作后刷新
 }
 
@@ -46,12 +46,9 @@ app.use(views(join(__dirname, "views"), {
 
 
 
-
 // 注册路由信息
 app.use(router.routes()).use(router.allowedMethods());
 app.listen(3003, () => {
     console.log("Node实战项目启动成功，监听在localhost:3003端口");
 })
-
-
 

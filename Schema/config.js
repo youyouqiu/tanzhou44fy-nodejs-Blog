@@ -21,11 +21,8 @@ db.on("open", () => {
 
 
 
-
 module.exports = {
     db,
     Schema
 }
-
-
 

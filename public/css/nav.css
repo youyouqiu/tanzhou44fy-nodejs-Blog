@@ -8,7 +8,7 @@
     top:0;
     left:0;
     width:100%;
-    background:rgb(255, 98, 145);
+    background-color:rgb(255, 98, 145);
     font-family:'Microsoft YaHei';
     z-index:999;
 }
@@ -30,29 +30,29 @@ h1 img{
 .nav-txt li a{
     color:white;
 }
-.login{
+#login{
     position:absolute;
     top:0;
     right:0;
-    width:252px;
 }
-.login li{
+#login li{
     font-size:17px;
     color:white;
     line-height:69px;
-    margin-left:22px;
 }
-.login .user{
+#login .user{
     position:relative;
-    margin-right:12px;
-    margin-left:0;
+    margin:0 38px 0 10px;
 }
 .user a{
     color:white;
-    font-size:25px;
+    font-size:20px;
     font-weight:bold;
 }
-.login .user2 a{
+#login .user2{
+    margin:0 20px;
+}
+#login .user2 a{
     color:white;
     font-weight:bold;
 }
@@ -67,18 +67,19 @@ h1 img{
     border-left:7px solid rgba(0,0,0,0);
 }
 .userimg{
-    width:99px;
     height:69px;
     white-space:nowrap;
     overflow:hidden;
     text-overflow:ellipsis;
+    margin-right:52px;
 }
 .userimg a{
     color:white;
-    font-size:15px;
+    font-size:18px;
 }
 .userimg a img{
     width:38px;
+    height:38px;
     vertical-align:middle;
     margin-right:9px;
 }
@@ -89,12 +90,12 @@ h1 img{
     position:absolute;
     top:69px;
     left:0;
-    width:115px;
+    width:125px;
     background-color:rosybrown;
 }
 .usertab2 li{
     color:white;
-    line-height:48px;
+    line-height:38px;
     text-align:center;
     border-bottom:1px solid white;
     margin:0;
@@ -102,7 +103,4 @@ h1 img{
 .usertab2 li a{
     font-size:17px;
 }
-
-
-
 
