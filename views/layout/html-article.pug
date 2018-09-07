@@ -1,0 +1,43 @@
+// 公共文章发表页面
+
+link(rel="stylesheet", href="/css/html-article.css")
+
+#html-article
+    table.layui-table
+        colgroup
+            col(width="200")
+            col(width="150")
+            col(width="699")
+            col(width="250")
+            col
+        thead
+            tr
+                th 用户昵称
+                th 技术类型
+                th 文章简介
+                th 发布日期
+                th 点评数量
+        tbody
+            tr
+                td
+                    img(src="/avatar/name1.jpg", alt="头像")
+                    span 许闲心
+                td 煽情
+                td 于千万人之中遇见你所遇见的人，于千万年之中，时间的无涯的荒野里…
+                td 2016-11-28 09:21:00
+                td 0
+
+            each info in artList
+                tr
+                    td.list.face
+                        img(src=info.author.avatar, alt=info.author)
+                        span= info.author.username
+                    td= info.tips
+                    td
+                        a(href=`/article/${info._id}`)= info.title
+                    td= info.createTime.toLocaleString()
+                    td= info.commentNum  
+        include ./laypage.pug
+
+script(src="/js/html-article.js")
+

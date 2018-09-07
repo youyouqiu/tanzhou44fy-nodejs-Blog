@@ -53,7 +53,7 @@
             li.userimg.fl.layui-nav-item
                 a(href="")
                     // 测试用固定头像
-                    img(src="/images/name1.jpg").layui-nav-img
+                    img(src=session.avatar).layui-nav-img
                     span= session.username
                     span.layui-badge-dot
         else

@@ -1,36 +1,8 @@
 extends ./layout/layout
 
 block css
-    style.
-        #main .layui-container {
-            margin-bottom:15px;
-            margin-top:76px;
-            border-radius:2px;
-            background-color:#fff;
-            box-shadow:0 1px 2px 0 rgba(0, 0, 0, .05);
-            border:1px solid #fff;
-        }
-        .article-add {
-            padding-top:7.5px;
-        }
-        .layui-form .layui-form-label{
-            width:110px;
-            padding:8px 15px;
-            height:38px;
-            line-height:20px;
-            border:1px solid #e6e6e6;
-            border-radius:2px 0 0 2px;
-            text-align:center;
-            background-color:#FBFBFB;
-            overflow:hidden;
-            white-space:nowrap;
-            text-overflow:ellipsis;
-            box-sizing:border-box;
-        }
-        .layui-tab-title{
-            margin-bottom:20px;
-        }
-
+    link(rel="stylesheet", href="/css/add-article.css")
+        
 block contents
     #main
         .layui-container
@@ -77,63 +49,12 @@ block contents
                                             )#L_title.layui-input
                                 .layui-form-item.layui-form-text
                                     textarea(style="display:none;")#article-content
-
                     .layui-form-item
                         button(lay-filter="send",
                             lay-submit
                         ).layui-btn 立即发布 
 
 block scripts
-    script.
-        layui.use(['form', 'layedit', "element"], function (){
-            const form = layui.form;
-            const layedit = layui.layedit;
-            const element = layui.element;
-            const $ = layui.$;
-
-            const index = layedit.build('article-content', {
-                hideTool: [
-                'image' //插入图片
-                ]
-            }); // 构建编辑器
-
-            form.on("submit(send)", res => {
-                const { tips, title } = res.field;
-
-                if(layedit.getText(index).trim().length === 0)return layer.alert("请输入内容");
-                
-                const data = {
-                    tips,
-                    title,
-                    content: layedit.getText(index)
-                }
-
-                $.post("/article", data, msg => {
-                    if(msg.status){
-                        layer.alert('发表成功', res => {
-                            location.href = "/";
-                        })
-                    } else {
-                        layer.alert(`发表失败，失败信息：${msg.msg}`);
-                    }
-                })
-            })
-
-            //- let res = 0
-            //- const proving = () => {
-            //-   const sym = ["+", '-', '*', '/']
-            //-   let num1 = parseInt(Math.random()*100)
-            //-   let num2 = parseInt(Math.random()*100)
-            //-   let str = num1 + sym[parseInt(Math.random() * (sym.length - 1))] + num2
-            //-   $(".result").html(str)
-            //-   res = eval(str)
-            //- }
-            //- proving()
-            //- // 验证
-            //- $("button").on("click", () => {
-            //-   if($("#L_vercode").val()*1 === res){
-            //-   }
-            //- })
-        });
-
-            
+    script(src="/js/add-article.js")
+        
+           

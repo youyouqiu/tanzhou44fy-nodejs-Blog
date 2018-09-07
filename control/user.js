@@ -130,7 +130,8 @@ exports.login = async ctx => {
         // 后端的 session 值，记录用户数据
         ctx.session = {
             username,
-            uid: data[0]._id
+            uid: data[0]._id,
+            avatar: data[0].avatar
         }
 
         // 登录成功

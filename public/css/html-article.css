@@ -4,6 +4,7 @@
 @charset "utf-8";
 
 #html-article{
+    position: relative;
     padding:138px 238px 38px;
 }
 .layui-table td, .layui-table th{
@@ -23,5 +24,14 @@
     margin-left:9px;
     vertical-align:bottom;
     color:white;
+}
+#laypage{
+    position: absolute;
+    top:100%;
+    left:50%;
+    /* margin-left:-160px; */
+    transform:translateX(-50%);
+    -webkit-transform:translateX(-50%);
+    -moz-transform:translateX(-50%);
 }
 

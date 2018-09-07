@@ -5,7 +5,11 @@ const { Schema } = require("./config");
 const UserSchema = new Schema({
     username: String,
     password: String,
-    city: String
+    city: String,
+    avatar: {
+        type: String,
+        default: "/avatar/name1.jpg"
+    }
 });
 
 

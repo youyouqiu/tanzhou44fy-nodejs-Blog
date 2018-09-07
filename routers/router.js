@@ -17,12 +17,12 @@ router.get("/", user.keepLog, async ctx => {
 });
 
 // 用户注册，登录页面判断
-// 设置动态路由，正则断言判断 /user/ 后面的值，排除此两种访问外的所有非法访问，防止危险访问
 /*
     router.get("/user/:id", async (ctx) => {
         ctx.body = ctx.params.id;
     })
 */
+// 设置动态路由，正则断言判断 /user/ 后面的值，排除此两种访问外的所有非法访问
 router.get(/^\/user\/(?=reg|login)/, async ctx => {
     // 用户注册登录界面的三目判断，show 为 true 显示注册页面， false 显示登录页面
     const show = /reg$/.test(ctx.path);
@@ -42,18 +42,16 @@ router.post("/user/login", user.login);
 router.get("/user/logout", user.logout);
 
 // Html子页面
-router.get("/html", async ctx => {
-    await ctx.render("html.pug", {
-        session: ctx.session,
-        title: "潭州论坛-Html"
-    })
-});
+router.get("/html", user.keepLog, article.getList);
 
 // Html子页文章发布页面
 router.get("/article", user.keepLog, article.addPage);
 
 // 文章添加
 router.post("/article", user.keepLog, article.add);
+
+// 文章列表分页
+router.get("/html/page/:id", article.getList);
 
 
 
