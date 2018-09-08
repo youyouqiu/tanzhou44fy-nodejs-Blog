@@ -4,7 +4,7 @@ layui.use(['layedit', 'layer', 'element'], function (){
     const element = layui.element;
     const layedit = layui.layedit;
     const layer = layui.layer;
-    const $ = layui.$
+    const $ = layui.$;
   
     // 构建编辑器
     const idx = layedit.build('comment-txt', {
@@ -12,7 +12,7 @@ layui.use(['layedit', 'layer', 'element'], function (){
         height: 160
     });
   
-    $(".layui-unselect.layui-layedit-tool").hide()
+    $(".layui-unselect.layui-layedit-tool").hide();
 
     $(".comment button").click(async () => {
         let content = layedit.getContent(idx).trim();
@@ -24,7 +24,7 @@ layui.use(['layedit', 'layer', 'element'], function (){
             article: $(".art-title").data("artid")
         }
   
-        $.post("/comment", data, (data) => {
+        $.post("/comment", data, data => {
             layer.msg(data.msg, {
                 time: 1000,
                 end(){

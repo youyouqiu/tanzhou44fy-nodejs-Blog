@@ -12,6 +12,7 @@ const ArticleSchema = new Schema({
         ref: "users"
     }, // 关联 users 表，连表查询
     tips: String,
+    commentNum: Number, // 计数字段，用来存储计数数据
     createTime: {
         type: Date,
         default: Date.now

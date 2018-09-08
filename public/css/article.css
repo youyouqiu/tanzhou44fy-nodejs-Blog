@@ -3,6 +3,9 @@
 */
 @charset "utf-8";
 
+.layui-container{
+    width:1080px;
+}
 /* 文章默认盒子padding */
 .default-box{
     padding: 20px;
@@ -11,9 +14,13 @@
 .text-center{
     text-align: center;
 }
+.layui-col-space15{
+    margin:38px 0 0;
+}
 /* 背景回复默认 跟评论区分开来 */
 .layui-col-space15 .layui-col-md8{
     background: #F2F2F2;
+    width:100%;
 }
 .content{
     margin-bottom: 20px;

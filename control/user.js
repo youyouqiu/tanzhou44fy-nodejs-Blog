@@ -35,7 +35,9 @@ exports.reg = async ctx => {
             const _user = new User({
                 username,
                 password: encrypt(password),
-                city
+                city,
+                articleNum: 0,
+                commentNum: 0
             });
 
             _user.save((err, data) => {

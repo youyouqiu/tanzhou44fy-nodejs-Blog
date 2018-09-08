@@ -50,5 +50,41 @@ app.use(views(join(__dirname, "views"), {
 app.use(router.routes()).use(router.allowedMethods());
 app.listen(3003, () => {
     console.log("Node实战项目启动成功，监听在localhost:3003端口");
-})
+});
+
+// 创建管理员用户，如果管理员用户已经存在，则返回，默认admin admin
+{
+    const { db } = require("./Schema/config");
+    const UserSchema = require("./Schema/user");
+    const encrypt = require("./util/encrypt");
+
+    // 通过 db 对象创建操作 user 数据库的模型对象
+    const User = db.model("users", UserSchema);
+
+    // 查询管理员是否存在
+    User
+        .find({username: "admin"})
+        .then(data => {
+            if (data.length === 0){
+                // 管理员不存在，创建
+                new User({
+                    username: "admin",
+                    password: encrypt("admin"),
+                    role: 666,
+                    articleNum: 0,
+                    commentNum: 0
+                })
+                .save()
+                .then(data => {
+                    console.log("管理员账号 -> admin，密码 -> admin");
+                })
+                .catch(err => {
+                    console.log("管理员账号查询失败")
+                })
+            } else {
+                // 管理员存在，返回
+                console.log("管理员账号 -> admin，密码 -> admin");
+            }
+        })
+}
 
