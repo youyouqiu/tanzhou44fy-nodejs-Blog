@@ -133,7 +133,8 @@ exports.login = async ctx => {
         ctx.session = {
             username,
             uid: data[0]._id,
-            avatar: data[0].avatar
+            avatar: data[0].avatar,
+            role: data[0].role
         }
 
         // 登录成功
@@ -176,5 +177,28 @@ exports.logout = async ctx => {
     });
     // 在后台设置重定向到根目录
     ctx.redirect("/");
+}
+
+// 用户头像上传
+exports.upload = async ctx => {
+    // 获取头像文件名
+    const filename = ctx.req.file.filename;
+    let data = {};
+    // 更新用户头像，$set 原子操作，没有就新增，有就修改
+    await User.updateOne({_id: ctx.session.uid}, {$set: {avatar: "/avatar/" + filename}}, (err, res) => {
+        if (err){
+            data = {
+                status: 0,
+                message: err
+            }
+        } else {
+            data = {
+                status: 1,
+                message: "上传成功"
+            }
+        }
+    });
+    ctx.type = "json";
+    ctx.body = data;
 }
 

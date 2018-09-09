@@ -70,6 +70,7 @@ app.listen(3003, () => {
                 new User({
                     username: "admin",
                     password: encrypt("admin"),
+                    city: "0",
                     role: 666,
                     articleNum: 0,
                     commentNum: 0

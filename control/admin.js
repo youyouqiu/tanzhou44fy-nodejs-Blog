@@ -6,6 +6,8 @@ const { db } = require("../Schema/config");
 const ArticleSchema = require("../Schema/article");
 const UserSchema = require("../Schema/user");
 const CommentSchema = require("../Schema/comment");
+const fs = require("fs");
+const { join } = require("path");
 
 // 通过 db 对象创建操作 article 数据库的模型对象
 const Article = db.model("Articles", ArticleSchema);
@@ -23,6 +25,25 @@ exports.index = async ctx => {
 
     // 用户已登录
     const id = ctx.params.id;
-    
+    // 匹配所有后台页面，以便后期扩展
+    const arr = fs.readdirSync(join(__dirname, "../views/admin"));
+    let flag = false;
+    arr.forEach(v => {
+        if (v.replace(/^(admin\-)|(\.pug)$/g, "") === id){
+            flag = true;
+        }
+    });
+    if (flag){
+        // 页面存在
+        await ctx.render("./admin/admin-" + id, {
+            role: ctx.session.role
+        })
+    } else {
+        // 页面不存在
+        ctx.status = 404;
+        await ctx.render("404.pug", {
+            title: "404"
+        })
+    }
 }
 

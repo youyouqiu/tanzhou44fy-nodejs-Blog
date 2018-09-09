@@ -6,6 +6,7 @@ const user = require("../control/user"); // 拿到操作 user 表的逻辑对象
 const article = require("../control/article"); // 拿到操作 article 表的逻辑对象
 const comment = require("../control/comment"); // 拿到操作 comment 表的逻辑对象
 const admin = require("../control/admin"); // 拿到操作 admin 表的逻辑对象
+const upload = require("../util/upload"); // 拿到操作 admin 表的逻辑对象
 
 // 生成router实例
 const router = new Router();
@@ -63,6 +64,9 @@ router.post("/comment", user.keepLog, comment.save);
 
 // 后台管理界面：文章，评论，头像上传
 router.get("/admin/:id", user.keepLog, admin.index);
+
+// 头像上传功能
+router.post("/upload/", user.keepLog, upload.single("file"), user.upload);
 
 
 
