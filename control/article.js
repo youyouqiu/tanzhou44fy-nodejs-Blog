@@ -2,15 +2,10 @@
 // 数据判断
 // 数据库读写操作
 
-const { db } = require("../Schema/config");
-const ArticleSchema = require("../Schema/article");
-const UserSchema = require("../Schema/user");
-const CommentSchema = require("../Schema/comment");
-
-// 通过 db 对象创建操作 article 数据库的模型对象
-const Article = db.model("Articles", ArticleSchema);
-const User = db.model("users", UserSchema);
-const Comment = db.model("comments", CommentSchema);
+// 导入钩子模块
+const Article = require("../Models/article");
+const Comment = require("../Models/comment");
+const User = require("../Models/user");
 
 // 文章发表页面
 exports.addPage = async ctx => {
@@ -130,5 +125,50 @@ exports.details = async ctx => {
         session: ctx.session,
         title: "文章详情页"
     })
+}
+
+// 后台功能：查询当前用户所有文章
+exports.artlist = async ctx => {
+    const uid = ctx.session.uid;
+    const data =  await Article.find({author: uid});
+
+    ctx.body = {
+        code: 0,
+        count: data.length,
+        data
+    }
+}
+
+// 后台功能：删除当前用户的对应文章
+exports.del = async ctx => {
+    const articleId = ctx.params.id;
+
+    /* 
+    
+        删除文章的关联操作：
+        1.删除当前文章
+        2.删除文章对应的所有评论
+        3.当前用户的文章数-1（articleNum -1）
+        4.被删除的所有评论对应的用户评论数-1（commentNum -1）
+
+    */
+
+    let res = {
+        state: 1,
+        message: "删除成功"
+    }
+
+    // 使用 Schema 钩子函数方法
+    await Article
+        .findById(articleId)
+        .then(data => data.remove())
+        .catch(err => {
+            res = {
+                state: 0,
+                message: "删除失败"
+            }
+        });
+
+    ctx.body = res;
 }
 

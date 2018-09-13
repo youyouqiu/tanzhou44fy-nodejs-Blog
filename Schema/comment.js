@@ -30,6 +30,21 @@ const CommentSchema = new Schema({
     }
 );
 
+// 设置 comment 的 remove 钩子（钩子是原型方法，只能在文档的实例调用上触发）
+CommentSchema.post("remove", doc => {
+    // 钩子的回调函数，会在 remove 事件执行之前触发
+    const Article = require("../Models/article"); // 钩子内部导入评论和用户模块
+    const User = require("../Models/user");
+    const { from, article } = doc; // 文章作者 id 和文章 id
+
+    Article
+        .updateOne({_id: article}, {$inc: {commentNum: -1}})
+        .exec();
+
+    User
+        .updateOne({_id: from}, {$inc: {commentNum: -1}})
+        .exec()
+})
 
 
 

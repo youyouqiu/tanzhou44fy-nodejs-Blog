@@ -1,0 +1,34 @@
+﻿@charset "utf-8";
+
+/*
+
+nodejs开发文档--警告文档
+
+await 参数内使用回调函数，会使事件执行两次
+
+实例：
+
+await Article
+	.updateOne({_id: articleId}, {$inc: {commentNum: -1}}, err => {
+                if (err) return console.log(err);
+                console.log("11");
+                
+         }); // 原子操作计数参数commentNumh会执行两次，结果-2
+
+
+因此，当在await参数内使用回调函数时，必须保证不是计数操作 或 不受一次调用多次执行影响的方法
+
+如果必须要在await参数内使用回调函数
+
+可以使用
+
+.then((...arr) => { })
+
+或
+
+.exec((...arr) => { })
+
+来进行回调操作
+
+*/ 
+

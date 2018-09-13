@@ -6,7 +6,7 @@ block main
             tr
                 th(lay-data="{field:'article', align:'center', templet: res => res.article.title}") 被评文章
                 th(lay-data="{field:'content', align:'center'}") 评论内容
-                th(lay-data="{field:'created', align:'center', templet: res => (new Date(res.created)).toLocaleString()}") 评论时间
+                th(lay-data="{field:'createTime', align:'center', templet: res => (new Date(res.createTime)).toLocaleString()}") 评论时间
                 th(lay-data="{fixed: 'right', width:178, align:'center', toolbar: '#barDemo'}") 操作
     script(type="text/html")#barDemo
         a(lay-event="del").layui-btn.layui-btn-danger.layui-btn-xs 删除

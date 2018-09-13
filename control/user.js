@@ -2,12 +2,13 @@
 // 数据判断
 // 数据库读写操作
 
-const { db } = require("../Schema/config");
-const UserSchema = require("../Schema/user");
-const encrypt = require("../util/encrypt");
+// 导入钩子模块
+const Article = require("../Models/article");
+const Comment = require("../Models/comment");
+const User = require("../Models/user");
 
-// 通过 db 对象创建操作 user 数据库的模型对象
-const User = db.model("users", UserSchema);
+// 加密工具模块
+const encrypt = require("../util/encrypt");
 
 // 用户注册 路由
 exports.reg = async ctx => {
@@ -155,9 +156,17 @@ exports.login = async ctx => {
 exports.keepLog = async (ctx, next) => {
     if (ctx.session.isNew){ // 当 session 里没有保存任何数据的时候，isNew 为 true
         if (ctx.cookies.get("username")){
+            let uid = ctx.cookies.get("uid");
+            
+            // 查询用户头像信息（用于头像上传后更新）
+            const avatar = await User.findById(uid)
+                .then(data => data.avatar);
+
+            // 更新用户头像
             ctx.session = {
                 username: ctx.cookies.get("username"),
-                uid: ctx.cookies.get("uid")
+                uid,
+                avatar
             }
         }
     }

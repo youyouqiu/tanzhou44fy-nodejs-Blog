@@ -29,6 +29,23 @@ const ArticleSchema = new Schema({
     }
 );
 
+// 设置 article 的 remove 钩子
+ArticleSchema.post("remove", doc => {
+    const Comment = require("../Models/comment"); // 钩子内部导入评论和用户模块
+    const User = require("../Models/user");
+    const { _id: artId, author: authorId } = doc; // 文章 id 和文章作者 id
+    
+    User
+        .findByIdAndUpdate(authorId, {$inc: {articleNum: -1}})
+        .exec()
+
+    // 当前需要删除文章的所有关联评论，依次调用 comment 钩子的 remove
+    Comment
+        .find({article: artId})
+        .then(data => {
+            data.forEach(v => v.remove())
+        })
+})
 
 
 

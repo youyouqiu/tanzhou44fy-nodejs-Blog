@@ -66,7 +66,19 @@ router.post("/comment", user.keepLog, comment.save);
 router.get("/admin/:id", user.keepLog, admin.index);
 
 // 头像上传功能
-router.post("/upload/", user.keepLog, upload.single("file"), user.upload);
+router.post("/upload", user.keepLog, upload.single("file"), user.upload);
+
+// 评论管理功能：查询
+router.get("/user/comments", user.keepLog, comment.comlist);
+
+// 评论管理功能：删除
+router.delete("/comment/:id", user.keepLog, comment.del);
+
+// 文章管理功能：查询
+router.get("/user/articles", user.keepLog, article.artlist);
+
+// 文章管理功能：删除
+router.delete("/article/:id", user.keepLog, article.del);
 
 
 

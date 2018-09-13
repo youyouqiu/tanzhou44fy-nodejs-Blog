@@ -2,17 +2,13 @@
 // 数据判断
 // 数据库读写操作
 
-const { db } = require("../Schema/config");
-const ArticleSchema = require("../Schema/article");
-const UserSchema = require("../Schema/user");
-const CommentSchema = require("../Schema/comment");
+// 导入钩子模块
+const Article = require("../Models/article");
+const Comment = require("../Models/comment");
+const User = require("../Models/user");
+
 const fs = require("fs");
 const { join } = require("path");
-
-// 通过 db 对象创建操作 article 数据库的模型对象
-const Article = db.model("Articles", ArticleSchema);
-const User = db.model("users", UserSchema);
-const Comment = db.model("comments", CommentSchema);
 
 exports.index = async ctx => {
     if (ctx.session.isNew){
