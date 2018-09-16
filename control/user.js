@@ -211,3 +211,50 @@ exports.upload = async ctx => {
     ctx.body = data;
 }
 
+// 后台功能：查询所有用户
+exports.uslist = async ctx => {
+    const uid = User._id;
+    
+    // 查询所有注册用户数据 username role articleNum commentNum
+    const data = await User.find(uid);
+
+    // 返回data数据
+    ctx.body = {
+        code: 0,
+        count: data.length,
+        data
+    }
+}
+
+// 后台功能：超级管理员删除对应的用户
+exports.del = async ctx => {
+    const uid = ctx.params.id
+    // console.log(uid)
+    /* 
+        删除用户的关联操作：
+        1.删除当前用户
+        2.删除当前用户的所有文章
+        3.删除当前用户的所有评论
+        4.被删用户评论的其他用户文章评论数-1（commentNum -1）
+        5.被删用户发表文章内的其他用户评论数-1（commentNum -1）
+    */
+
+    let res = {
+        state: 1,
+        message: "删除成功"
+    }
+    
+    // 使用 Schema 钩子函数方法
+    await User
+        .findById(uid)
+        .then(data => data.remove())
+        .catch(err => {
+            res = {
+                state: 0,
+                message: "删除失败"
+            }
+        });
+    
+    ctx.body = res;
+}
+

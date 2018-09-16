@@ -37,6 +37,8 @@ CommentSchema.post("remove", doc => {
     const User = require("../Models/user");
     const { from, article } = doc; // 文章作者 id 和文章 id
 
+    console.log(doc);
+
     Article
         .updateOne({_id: article}, {$inc: {commentNum: -1}})
         .exec();

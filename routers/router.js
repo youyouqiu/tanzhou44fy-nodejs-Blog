@@ -80,6 +80,12 @@ router.get("/user/articles", user.keepLog, article.artlist);
 // 文章管理功能：删除
 router.delete("/article/:id", user.keepLog, article.del);
 
+// 用户管理功能：查询
+router.get("/user/users", user.keepLog, user.uslist);
+
+// 用户管理功能：删除
+router.delete("/user/:id", user.keepLog, user.del);
+
 
 
 // 空路由时，404

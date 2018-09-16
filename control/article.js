@@ -144,13 +144,11 @@ exports.del = async ctx => {
     const articleId = ctx.params.id;
 
     /* 
-    
         删除文章的关联操作：
         1.删除当前文章
         2.删除文章对应的所有评论
         3.当前用户的文章数-1（articleNum -1）
         4.被删除的所有评论对应的用户评论数-1（commentNum -1）
-
     */
 
     let res = {
