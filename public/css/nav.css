@@ -20,6 +20,9 @@ h1{
 h1 img{
     vertical-align:middle;
 }
+.nav-txt{
+    min-width: 1338px;
+}
 .nav-txt li{
     font-size:17px;
     color:white;
